@@ -32,11 +32,19 @@ export function HeroBanner() {
   return (
     <section className="relative bg-primary overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 circuit-pattern opacity-[0.15]" />
+      <div className="absolute inset-0 circuit-pattern-nodes opacity-[0.18]" />
+      <div className="absolute inset-0 hex-pattern opacity-[0.06]" />
+      <div className="absolute inset-0 scanlines" />
       <div className="absolute -top-40 -left-40 h-[700px] w-[700px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(155,48,255,0.2) 0%, transparent 65%)" }} />
+        style={{ background: "radial-gradient(circle, rgba(155,48,255,0.22) 0%, transparent 65%)" }} />
       <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(79,127,255,0.15) 0%, transparent 65%)" }} />
+        style={{ background: "radial-gradient(circle, rgba(79,127,255,0.18) 0%, transparent 65%)" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(107,127,255,0.08) 0%, transparent 70%)" }} />
+      {/* Data stream lines */}
+      {[15, 35, 55, 75, 90].map((left, i) => (
+        <div key={i} className="data-stream-line" style={{ left: `${left}%`, animationDelay: `${i * 0.7}s`, animationDuration: `${3 + i * 0.4}s` }} />
+      ))}
 
       <div className="relative container mx-auto px-4 md:px-6 py-14 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -57,8 +65,10 @@ export function HeroBanner() {
             {/* Headline */}
             <h1 className="font-display font-black leading-[1.02] tracking-tight mb-6">
               <span className="block text-3xl sm:text-4xl lg:text-5xl text-white">O FUTURO NÃO ESPERA.</span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-white">QUEM <span className="text-gradient">NÃO USA IA</span>,</span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-accent">FICA PARA TRÁS.</span>
+              <span className="block text-3xl sm:text-4xl lg:text-5xl text-white">
+                QUEM <span className="text-gradient glow-accent">NÃO USA IA</span>,
+              </span>
+              <span className="block text-3xl sm:text-4xl lg:text-5xl text-accent glow-accent">FICA PARA TRÁS.</span>
             </h1>
 
             {/* Body */}
@@ -91,13 +101,13 @@ export function HeroBanner() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Button asChild
-                className="h-12 px-8 rounded-none bg-accent hover:bg-accent/85 text-white font-bold text-sm tracking-wide shadow-glow uppercase">
+                className="h-12 px-8 rounded-none bg-accent hover:bg-accent/85 text-white font-bold text-sm tracking-wide shadow-glow neon-pulse uppercase corner-bracket">
                 <Link to="/contato">
                   Transforme Conhecimento em Resultados <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline"
-                className="h-12 px-6 rounded-none border-white/20 text-white/70 hover:border-accent/50 hover:text-white font-semibold text-sm">
+                className="h-12 px-6 rounded-none border-white/20 text-white/70 hover:border-cyan/50 hover:text-white font-semibold text-sm">
                 <Link to="/jovem-profissional-ia">Ver cursos</Link>
               </Button>
             </div>
@@ -116,10 +126,10 @@ export function HeroBanner() {
             <div className="flex flex-col gap-2">
               {rightFeatures.map(f => (
                 <div key={f.label}
-                  className="flex items-center gap-3 border border-white/10 px-4 py-2.5"
-                  style={{ background: "rgba(155,48,255,0.07)" }}>
+                  className="holo-card flex items-center gap-3 border border-accent/20 px-4 py-2.5 neon-border"
+                  style={{ background: "rgba(155,48,255,0.08)" }}>
                   <f.Icon className="h-4 w-4 text-accent flex-shrink-0" />
-                  <span className="text-xs font-bold text-accent tracking-widest uppercase">{f.label}</span>
+                  <span className="text-xs font-bold text-accent tracking-widest uppercase glow-accent">{f.label}</span>
                   <span className="text-xs text-white/45 ml-auto">{f.desc}</span>
                 </div>
               ))}
@@ -143,8 +153,8 @@ export function HeroBanner() {
             <div className="grid grid-cols-2 gap-2">
               {bottomCards.map(c => (
                 <div key={c.label}
-                  className="flex items-start gap-2.5 border border-white/8 px-3 py-3"
-                  style={{ background: "rgba(79,127,255,0.05)" }}>
+                  className="holo-card corner-bracket flex items-start gap-2.5 border border-cyan/15 px-3 py-3"
+                  style={{ background: "rgba(79,127,255,0.06)" }}>
                   <c.Icon className="h-4 w-4 text-cyan flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-[11px] font-bold text-white leading-tight">{c.label}</div>

@@ -74,8 +74,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Cursos</h4>
             <ul className="space-y-2.5 text-sm text-white/55">
               <li><Link to="/jovem-profissional-ia" className="hover:text-accent transition">Jovem Profissional IA</Link></li>
-              <li><Link to="/inovatech" className="hover:text-accent transition">InovaTech</Link></li>
-              <li><Link to="/techkids" className="hover:text-accent transition">TechKids</Link></li>
+              <li><Link to="/kids-ia" className="hover:text-accent transition">Kids IA</Link></li>
               <li><Link to="/auxiliar-veterinario" className="hover:text-accent transition">Auxiliar de Veterinario</Link></li>
               <li><Link to="/vip" className="hover:text-accent transition">Curso VIP</Link></li>
             </ul>

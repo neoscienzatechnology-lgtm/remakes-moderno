@@ -1,17 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Cpu, Bot, Stethoscope, Crown } from "lucide-react";
+import { ArrowRight, Clock, Bot, Stethoscope, Crown, GraduationCap } from "lucide-react";
 
 const courses = [
   {
-    Icon: Cpu,
-    name: "InovaTech",
-    tag: "Tecnologia",
-    desc: "Profissional multidisciplinar em programacao, IA e IoT. Do Front-End ao Python, do No-Code ao empreendedorismo digital.",
+    Icon: GraduationCap,
+    name: "Jovem Profissional IA",
+    tag: "Profissionalizante",
+    desc: "Formacao completa em IA para o mercado de trabalho. Domine as ferramentas que as empresas mais exigem hoje.",
     hours: "176h",
     duration: "24 meses",
-    highlights: ["IA & ChatGPT", "Python & Data", "IoT & Arduino", "Front-End"],
-    href: "/inovatech",
+    highlights: ["ChatGPT & Claude", "Office com IA", "Producao de Conteudo", "Empregabilidade"],
+    href: "/jovem-profissional-ia",
     gradFrom: "rgba(155,48,255,0.30)",
     gradTo: "rgba(79,127,255,0.15)",
     border: "rgba(155,48,255,0.45)",
@@ -19,13 +19,13 @@ const courses = [
   },
   {
     Icon: Bot,
-    name: "TechKids",
+    name: "Kids IA",
     tag: "Infantojuvenil",
     desc: "Tecnologia, automacao e IA para criancas e adolescentes. Scratch, robotica, impressao 3D e desenvolvimento de apps.",
     hours: "176h",
     duration: "24 meses",
-    highlights: ["Robotica & Arduino", "Scratch & Games", "Modelagem 3D", "Apps Sem Codigo"],
-    href: "/techkids",
+    highlights: ["Robotica & Arduino", "Scratch & Games", "Modelagem 3D", "Apps com IA"],
+    href: "/kids-ia",
     gradFrom: "rgba(107,127,255,0.30)",
     gradTo: "rgba(155,48,255,0.15)",
     border: "rgba(107,127,255,0.45)",

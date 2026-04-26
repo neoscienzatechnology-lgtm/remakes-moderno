@@ -6,8 +6,7 @@ import logoR1 from "@/assets/remington-logo-r1.png";
 
 const courses = [
   { to: "/jovem-profissional-ia", label: "Jovem Profissional IA" },
-  { to: "/inovatech", label: "InovaTech" },
-  { to: "/techkids", label: "TechKids" },
+  { to: "/kids-ia", label: "Kids IA" },
   { to: "/auxiliar-veterinario", label: "Auxiliar de Veterinario" },
   { to: "/vip", label: "Curso VIP" },
 ];
