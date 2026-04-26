@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Remington IA</title>
+    <script>
+      // Single-page app redirect for GitHub Pages.
+      // Saves the full URL to sessionStorage then redirects to index.html.
+      // index.pages.html restores it before the router initializes.
+      var path = window.location.pathname;
+      var base = "/remakes-moderno";
+      sessionStorage.redirect = window.location.href;
+      window.location.replace(base + "/?p=1");
+    </script>
+  </head>
+  <body></body>
+</html>

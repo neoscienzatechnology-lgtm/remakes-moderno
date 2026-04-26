@@ -1,0 +1,27 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+
+// Standalone SPA build for GitHub Pages deployment.
+// Does NOT use the Lovable SSR/Cloudflare config.
+export default defineConfig({
+  base: "/remakes-moderno/",
+  plugins: [
+    TanStackRouterVite({
+      routesDirectory: "./src/routes",
+      generatedRouteTree: "./src/routeTree.gen.ts",
+    }),
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
+  build: {
+    outDir: "dist-pages",
+    emptyOutDir: true,
+    rollupOptions: {
+      input: "index.pages.html",
+    },
+  },
+});
