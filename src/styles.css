@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* Fonts: Space Grotesk (display) + Inter (body) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /*
  * Remington IA — dark tech design system
@@ -19,6 +19,7 @@
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Menlo", monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -538,5 +539,144 @@
     text-shadow:
       0 0 12px color-mix(in oklab, var(--cyan) 70%, transparent),
       0 0 24px color-mix(in oklab, var(--cyan) 30%, transparent);
+  }
+
+  /* ── Template section utilities ── */
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .eyebrow-dark {
+    color: var(--on-light);
+  }
+
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .section-y {
+    padding-top: clamp(80px, 10vw, 140px);
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .section-title-dark {
+    color: var(--on-light);
+  }
+
+  .section-title-light {
+    color: #fff;
+  }
+
+  .section-lead {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+  }
+
+  /* Page loader */
+  @keyframes loader-letter {
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .loader-letter {
+    display: inline-block;
+    transform: translateY(80%);
+    opacity: 0;
+    animation: loader-letter 0.6s cubic-bezier(0.2,0.7,0.15,1) forwards;
+  }
+
+  /* Marquee */
+  @keyframes scrollX {
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: scrollX 40s linear infinite;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  /* Showcase list check circle */
+  .showcase-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .showcase-check-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    flex: 0 0 22px;
+  }
+
+  /* Alumni cards */
+  .alumni-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid rgba(11,8,30,0.07);
+    border-top: 3px solid var(--card-accent, #9B30FF);
+    transition: transform 0.25s cubic-bezier(0.2,0.7,0.15,1), box-shadow 0.25s cubic-bezier(0.2,0.7,0.15,1);
+  }
+  .alumni-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px -12px rgba(11,8,30,0.14);
+  }
+
+  /* Feature numbered grid */
+  .feature-card {
+    padding: 32px 28px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .feature-card:hover {
+    background: rgba(155,48,255,0.04);
+    border-color: rgba(155,48,255,0.15);
+  }
+  .feature-num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(155,48,255,0.18);
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
   }
 }

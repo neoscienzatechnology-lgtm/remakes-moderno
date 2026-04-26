@@ -1,178 +1,220 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart2, DoorOpen, TrendingUp, BookOpen, GraduationCap, Award, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import logoR1 from "@/assets/remington-logo-r1.png";
-import studentsImg from "@/assets/hero-students.jpg";
+import { ArrowRight, Play, Code, Cpu, Wifi, Bot } from "lucide-react";
 
-const aiTools = [
-  { name: "ChatGPT", color: "#10a37f" },
-  { name: "Claude", color: "#d97706" },
-  { name: "Gemini", color: "#4285f4" },
-  { name: "Copilot", color: "#0078d4" },
-  { name: "Midjourney", color: "#9B30FF" },
-  { name: "Canva", color: "#e63d8f" },
-  { name: "Notion AI", color: "#6b7280" },
+const metaStats = [
+  { num: "57", suffix: "+", label: "anos de história" },
+  { num: "50", suffix: "+", label: "qualificações profissionais" },
+  { num: "98", suffix: "%", label: "satisfação dos alunos" },
 ];
 
-const rightFeatures = [
-  { Icon: BarChart2, label: "+PRODUTIVIDADE", desc: "Automatize tarefas e ganhe tempo" },
-  { Icon: DoorOpen, label: "+OPORTUNIDADES", desc: "Novas habilidades, novas portas" },
-  { Icon: TrendingUp, label: "+RESULTADOS", desc: "Mais eficiência, mais lucro" },
+const marqueeItems = [
+  "Ribeirão Preto", "·", "57 anos", "·", "Formação profissional", "·",
+  "Inteligência Artificial", "·", "Prepara, Qualifica e Encaminha", "·",
+  "Carreira tech", "·", "Educação para o futuro", "·",
+  "Ribeirão Preto", "·", "57 anos", "·", "Formação profissional", "·",
+  "Inteligência Artificial", "·", "Prepara, Qualifica e Encaminha", "·",
+  "Carreira tech", "·", "Educação para o futuro", "·",
 ];
 
-const bottomCards = [
-  { Icon: BookOpen, label: "Cursos Práticos", desc: "100% aplicados ao mercado" },
-  { Icon: Users, label: "Professores Especialistas", desc: "Com experiência real" },
-  { Icon: Award, label: "Certificado", desc: "Reconhecido pelo mercado" },
-  { Icon: GraduationCap, label: "Suporte e Comunidade", desc: "Aprenda e cresça junto" },
+const chips = [
+  { Icon: Code, label: "Python", top: "12%", left: "18%", delay: 0 },
+  { Icon: Cpu, label: "IA", top: "42%", left: "-2%", delay: 1.5 },
+  { Icon: Wifi, label: "IoT", bottom: "18%", right: "8%", delay: 3 },
 ];
 
 export function HeroBanner() {
   return (
-    <section className="relative bg-primary overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 circuit-pattern-nodes opacity-[0.18]" />
-      <div className="absolute inset-0 hex-pattern opacity-[0.06]" />
-      <div className="absolute inset-0 scanlines" />
+    <section className="relative overflow-hidden" style={{ background: "oklch(0.07 0.05 282)" }}>
+
+      {/* Background layers */}
+      <div className="absolute inset-0 circuit-pattern-nodes opacity-[0.15]" />
+      <div className="absolute inset-0 hex-pattern opacity-[0.05]" />
+
+      {/* Glows */}
       <div className="absolute -top-40 -left-40 h-[700px] w-[700px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(155,48,255,0.22) 0%, transparent 65%)" }} />
+        style={{ background: "radial-gradient(circle, rgba(155,48,255,0.20) 0%, transparent 65%)" }} />
       <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(79,127,255,0.18) 0%, transparent 65%)" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(107,127,255,0.08) 0%, transparent 70%)" }} />
-      {/* Data stream lines */}
-      {[15, 35, 55, 75, 90].map((left, i) => (
-        <div key={i} className="data-stream-line" style={{ left: `${left}%`, animationDelay: `${i * 0.7}s`, animationDuration: `${3 + i * 0.4}s` }} />
-      ))}
+        style={{ background: "radial-gradient(circle, rgba(79,127,255,0.15) 0%, transparent 65%)" }} />
 
-      <div className="relative container mx-auto px-4 md:px-6 py-14 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      {/* Main content */}
+      <div className="relative container mx-auto px-[clamp(20px,4vw,40px)]"
+        style={{ maxWidth: "1280px", paddingTop: "clamp(100px,12vw,160px)", paddingBottom: "clamp(60px,8vw,100px)" }}>
 
-          {/* LEFT COLUMN */}
-          <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+        <div className="grid lg:grid-cols-2 gap-[clamp(40px,6vw,80px)] items-center">
 
-            {/* Brand header */}
-            <div className="flex items-center gap-3 mb-8">
-              <img src={logoR1} alt="Remington IA" className="h-12 w-auto drop-shadow-[0_0_10px_rgba(155,48,255,0.6)]" />
-              <div>
-                <div className="text-white font-bold text-base tracking-[0.15em] leading-tight">REMINGTON IA</div>
-                <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50">Ensino de Tecnologia</div>
-                <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent">Produtividade e Renda com IA</div>
-              </div>
-            </div>
+          {/* ── LEFT ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.2, 0.7, 0.15, 1] }}
+          >
+            {/* Eyebrow */}
+            <span className="eyebrow mb-6 block">
+              <span className="eyebrow-dot" />
+              Educação para o Futuro · desde 1969
+            </span>
 
             {/* Headline */}
-            <h1 className="font-display font-black leading-[1.02] tracking-tight mb-6">
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-white">O FUTURO NÃO ESPERA.</span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-white">
-                QUEM <span className="text-gradient glow-accent">NÃO USA IA</span>,
-              </span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl text-accent glow-accent">FICA PARA TRÁS.</span>
+            <h1 className="section-title section-title-light mb-6" style={{ fontSize: "clamp(2.5rem,5.5vw,4rem)" }}>
+              Formamos quem vai{" "}
+              <em style={{ fontStyle: "normal", color: "oklch(0.58 0.28 292)" }}>programar</em>{" "}
+              o próximo capítulo do mercado.
             </h1>
 
-            {/* Body */}
-            <p className="text-white/60 text-sm lg:text-base leading-relaxed mb-2">
-              A Inteligência Artificial já está transformando profissões, negócios e vidas.
-            </p>
-            <p className="text-sm lg:text-base leading-relaxed mb-8">
-              <span className="text-accent font-semibold">Domine as ferramentas de IA</span>{" "}
-              <span className="text-white/70">e aumente sua produtividade e sua renda!</span>
+            {/* Sub */}
+            <p className="mb-8 leading-relaxed" style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(15px,1.4vw,17px)", maxWidth: "52ch" }}>
+              Há <strong style={{ color: "#fff" }}>57 anos</strong> qualificando profissionais em Ribeirão Preto.
+              Mais de <strong style={{ color: "#fff" }}>50 cursos</strong> que unem fundamentos clássicos à inteligência
+              artificial, IoT e empregabilidade real.
             </p>
 
-            {/* AI Tools */}
-            <div className="mb-6">
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-3">
-                Aprenda na Remington · Todas as principais ferramentas de IA em um só lugar
-              </p>
-              <div className="flex flex-wrap gap-2 items-center">
-                {aiTools.map(t => (
-                  <span key={t.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border text-white/80"
-                    style={{ borderColor: `${t.color}40`, background: `${t.color}15` }}>
-                    <span className="h-2 w-2 rounded-full flex-shrink-0" style={{ background: t.color }} />
-                    {t.name}
-                  </span>
-                ))}
-                <span className="text-xs font-bold text-accent tracking-wide">+ E MUITO MAIS!</span>
-              </div>
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              <a href="#cursos"
+                className="inline-flex items-center gap-2 h-12 px-7 text-sm font-semibold text-white transition-all hover:opacity-90"
+                style={{ background: "oklch(0.58 0.28 292)", borderRadius: "999px", boxShadow: "0 12px 40px -10px rgba(155,48,255,0.5)" }}>
+                <span>Explorar cursos</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#programa"
+                className="inline-flex items-center gap-2 h-12 px-7 text-sm font-medium transition-all hover:bg-white/10"
+                style={{ color: "rgba(255,255,255,0.75)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "999px" }}>
+                <Play className="h-4 w-4" />
+                Prepara, Qualifica e Encaminha
+              </a>
             </div>
 
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Button asChild
-                className="h-12 px-8 rounded-none bg-accent hover:bg-accent/85 text-white font-bold text-sm tracking-wide shadow-glow neon-pulse uppercase corner-bracket">
-                <Link to="/contato">
-                  Transforme Conhecimento em Resultados <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline"
-                className="h-12 px-6 rounded-none border-white/20 text-white/70 hover:border-cyan/50 hover:text-white font-semibold text-sm">
-                <Link to="/jovem-profissional-ia">Ver cursos</Link>
-              </Button>
-            </div>
-
-            {/* Tagline */}
-            <p className="text-xs text-white/35 tracking-wide">
-              Mais produtividade. Mais oportunidades. <span className="text-white/55 font-medium">Mais liberdade.</span>
-            </p>
-          </motion.div>
-
-          {/* RIGHT COLUMN */}
-          <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
-            className="flex flex-col gap-4">
-
-            {/* Feature pills */}
-            <div className="flex flex-col gap-2">
-              {rightFeatures.map(f => (
-                <div key={f.label}
-                  className="holo-card flex items-center gap-3 border border-accent/20 px-4 py-2.5 neon-border"
-                  style={{ background: "rgba(155,48,255,0.08)" }}>
-                  <f.Icon className="h-4 w-4 text-accent flex-shrink-0" />
-                  <span className="text-xs font-bold text-accent tracking-widest uppercase glow-accent">{f.label}</span>
-                  <span className="text-xs text-white/45 ml-auto">{f.desc}</span>
+            {/* Meta stats */}
+            <div className="flex flex-wrap gap-8 pt-6"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+              {metaStats.map(s => (
+                <div key={s.label}>
+                  <div className="flex items-end gap-0.5 leading-none mb-1.5">
+                    <span className="font-display font-bold text-white"
+                      style={{ fontSize: "clamp(28px,4vw,40px)", letterSpacing: "-0.03em" }}>
+                      {s.num}
+                    </span>
+                    <span className="font-display font-bold text-[oklch(0.58_0.28_292)] text-xl pb-1">{s.suffix}</span>
+                  </div>
+                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
+          </motion.div>
 
-            {/* Students image */}
-            <div className="relative overflow-hidden"
-              style={{ border: "1px solid rgba(155,48,255,0.2)" }}>
-              <img src={studentsImg} alt="Alunos Remington IA"
-                className="w-full h-48 lg:h-56 object-cover object-top" />
-              <div className="absolute inset-0"
-                style={{ background: "linear-gradient(135deg, rgba(7,7,18,0.3) 0%, rgba(155,48,255,0.1) 100%)" }} />
-              <div className="absolute bottom-3 left-3 right-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">
-                  O futuro é agora — e ele começa com você.
-                </span>
-              </div>
-            </div>
-
-            {/* Bottom cards */}
-            <div className="grid grid-cols-2 gap-2">
-              {bottomCards.map(c => (
-                <div key={c.label}
-                  className="holo-card corner-bracket flex items-start gap-2.5 border border-cyan/15 px-3 py-3"
-                  style={{ background: "rgba(79,127,255,0.06)" }}>
-                  <c.Icon className="h-4 w-4 text-cyan flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-[11px] font-bold text-white leading-tight">{c.label}</div>
-                    <div className="text-[10px] text-white/40 mt-0.5">{c.desc}</div>
+          {/* ── RIGHT — Mockup Stage ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.2, 0.7, 0.15, 1] }}
+            className="relative hidden lg:block"
+            style={{ minHeight: "420px" }}
+          >
+            {/* Laptop mockup */}
+            <div className="relative mx-auto" style={{ maxWidth: "480px" }}>
+              <div className="rounded-xl overflow-hidden"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  boxShadow: "0 40px 80px -20px rgba(0,0,0,0.5)",
+                }}>
+                {/* Browser bar */}
+                <div className="flex items-center gap-2 px-4 py-3"
+                  style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                  <span className="h-3 w-3 rounded-full" style={{ background: "#FF5F57" }} />
+                  <span className="h-3 w-3 rounded-full" style={{ background: "#FEBC2E" }} />
+                  <span className="h-3 w-3 rounded-full" style={{ background: "#28C840" }} />
+                  <div className="ml-3 flex-1 h-6 rounded-full flex items-center px-3 text-[11px]"
+                    style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)" }}>
+                    remington.com.br/jovem-profissional-ia
                   </div>
                 </div>
+
+                {/* Screen content */}
+                <div className="p-6 space-y-3">
+                  <div className="h-3 rounded-full w-1/3" style={{ background: "rgba(155,48,255,0.4)" }} />
+                  <div className="h-2 rounded-full w-3/4" style={{ background: "rgba(255,255,255,0.1)" }} />
+                  <div className="h-2 rounded-full w-2/3" style={{ background: "rgba(255,255,255,0.07)" }} />
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {["ChatGPT", "Claude", "Gemini", "Copilot", "Midjourney", "Canva"].map(t => (
+                      <div key={t} className="rounded-lg py-2 px-3 text-[11px] font-medium"
+                        style={{ background: "rgba(155,48,255,0.15)", color: "rgba(155,48,255,0.9)", border: "1px solid rgba(155,48,255,0.2)" }}>
+                        {t}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 flex items-center gap-2 p-2 rounded-lg"
+                    style={{ background: "rgba(155,48,255,0.1)", border: "1px solid rgba(155,48,255,0.15)" }}>
+                    <Bot className="h-4 w-4" style={{ color: "oklch(0.58 0.28 292)" }} />
+                    <span className="text-xs font-medium text-white/70">
+                      Jovem Profissional IA · Turma 2026
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone mockup — overlapping bottom-right */}
+              <div className="absolute -bottom-8 -right-10 w-36 rounded-[24px] overflow-hidden"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  boxShadow: "0 20px 60px -20px rgba(0,0,0,0.5)",
+                }}>
+                <div className="mx-auto mt-3 h-1 w-8 rounded-full" style={{ background: "rgba(255,255,255,0.3)" }} />
+                <div className="p-3 mt-2 space-y-2">
+                  <div className="h-2 rounded-full" style={{ background: "rgba(107,127,255,0.4)" }} />
+                  <div className="h-1.5 rounded-full w-4/5" style={{ background: "rgba(255,255,255,0.08)" }} />
+                  <div className="h-1.5 rounded-full w-2/3" style={{ background: "rgba(255,255,255,0.06)" }} />
+                  <div className="mt-3 rounded-lg p-2 text-[10px] font-medium"
+                    style={{ background: "rgba(107,127,255,0.15)", color: "rgba(107,127,255,0.9)", border: "1px solid rgba(107,127,255,0.2)" }}>
+                    <Bot className="h-3 w-3 mb-1" />
+                    Kids IA · 8–14 anos
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating chips */}
+              {chips.map(({ Icon, label, delay, ...pos }) => (
+                <div
+                  key={label}
+                  className="absolute animate-float hidden xl:flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-white/80"
+                  style={{
+                    ...pos,
+                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    borderRadius: "999px",
+                    backdropFilter: "blur(8px)",
+                    animationDelay: `${delay}s`,
+                  }}
+                >
+                  <Icon className="h-3.5 w-3.5 text-[oklch(0.58_0.28_292)]" />
+                  {label}
+                </div>
               ))}
             </div>
-
-            {/* Bottom CTA line */}
-            <div className="text-center border-t border-white/8 pt-3">
-              <p className="text-[11px] text-white/40">
-                <span className="text-accent font-semibold">Dê o primeiro passo hoje!</span>{" "}
-                Invista em você. Aprenda IA. Aumente sua renda.
-              </p>
-              <p className="text-[10px] text-white/25 mt-1 tracking-widest">remington.com.br</p>
-            </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* ── MARQUEE STRIP ── */}
+      <div className="relative overflow-hidden"
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+          padding: "20px 0",
+          marginTop: "clamp(40px,6vw,80px)",
+        }}>
+        <div className="overflow-hidden">
+          <div className="marquee-track" style={{ fontSize: "clamp(14px,1.2vw,18px)" }}>
+            {marqueeItems.map((item, i) => (
+              <span key={i}
+                style={{ color: item === "·" ? "rgba(155,48,255,0.8)" : "rgba(255,255,255,0.55)" }}>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

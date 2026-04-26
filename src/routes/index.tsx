@@ -1,10 +1,11 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { HeroBanner } from "@/components/site/HeroBanner";
-import { ValuePropsSection } from "@/components/site/ValuePropsSection";
-import { MethodologySection } from "@/components/site/MethodologySection";
+import { InstitutionalSection } from "@/components/site/InstitutionalSection";
 import { CoursesSection } from "@/components/site/CoursesSection";
-import { AnimatedStats } from "@/components/site/AnimatedStats";
+import { ShowcaseSection } from "@/components/site/ShowcaseSection";
+import { DiferenciaisSection } from "@/components/site/DiferenciaisSection";
+import { ProgramaSection } from "@/components/site/ProgramaSection";
 import { Testimonials } from "@/components/site/Testimonials";
 import { BlogSection } from "@/components/site/BlogSection";
 import { CtaSection } from "@/components/site/CtaSection";
@@ -13,17 +14,17 @@ import heroImg from "@/assets/jpia-hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Remington IA · Produtividade e Renda com Inteligencia Artificial" },
+      { title: "Remington · Educação para o Futuro" },
       {
         name: "description",
         content:
-          "Instituto de Ensino especializado em Inteligencia Artificial. Aprenda, automatize e monetize suas habilidades com IA. 57 anos de tradicao formando profissionais.",
+          "Há mais de 57 anos formando profissionais em Ribeirão Preto. Cursos profissionalizantes com foco em Inteligência Artificial, tecnologia e empregabilidade real.",
       },
-      { property: "og:title", content: "Remington IA · Produtividade e Renda com IA" },
+      { property: "og:title", content: "Remington · Educação para o Futuro" },
       {
         property: "og:description",
         content:
-          "Domine as ferramentas de IA mais poderosas do mercado, aumente sua produtividade e gere renda real. Instituto de Ensino Remington IA.",
+          "Formação profissional com 57 anos de experiência. Jovem Profissional IA, Kids IA, Auxiliar de Veterinário e muito mais.",
       },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
@@ -36,15 +37,14 @@ function HomePage() {
   return (
     <SiteShell>
       <HeroBanner />
-      <ValuePropsSection />
-      <MethodologySection />
+      <InstitutionalSection />
       <CoursesSection />
-      <AnimatedStats />
+      <ShowcaseSection />
+      <DiferenciaisSection />
+      <ProgramaSection />
       <Testimonials />
       <BlogSection />
       <CtaSection />
     </SiteShell>
   );
 }
-
-
