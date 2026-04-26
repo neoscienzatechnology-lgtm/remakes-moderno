@@ -13,6 +13,7 @@ import { Route as VipRouteImport } from './routes/vip'
 import { Route as TechkidsRouteImport } from './routes/techkids'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as KidsIaRouteImport } from './routes/kids-ia'
 import { Route as JovemProfissionalIaRouteImport } from './routes/jovem-profissional-ia'
 import { Route as InovatechRouteImport } from './routes/inovatech'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -40,6 +41,11 @@ const SobreRoute = SobreRouteImport.update({
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
   id: '/privacidade',
   path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KidsIaRoute = KidsIaRouteImport.update({
+  id: '/kids-ia',
+  path: '/kids-ia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JovemProfissionalIaRoute = JovemProfissionalIaRouteImport.update({
@@ -91,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/inovatech': typeof InovatechRoute
   '/jovem-profissional-ia': typeof JovemProfissionalIaRoute
+  '/kids-ia': typeof KidsIaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/techkids': typeof TechkidsRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/inovatech': typeof InovatechRoute
   '/jovem-profissional-ia': typeof JovemProfissionalIaRoute
+  '/kids-ia': typeof KidsIaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/techkids': typeof TechkidsRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/inovatech': typeof InovatechRoute
   '/jovem-profissional-ia': typeof JovemProfissionalIaRoute
+  '/kids-ia': typeof KidsIaRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/techkids': typeof TechkidsRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/inovatech'
     | '/jovem-profissional-ia'
+    | '/kids-ia'
     | '/privacidade'
     | '/sobre'
     | '/techkids'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/inovatech'
     | '/jovem-profissional-ia'
+    | '/kids-ia'
     | '/privacidade'
     | '/sobre'
     | '/techkids'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/inovatech'
     | '/jovem-profissional-ia'
+    | '/kids-ia'
     | '/privacidade'
     | '/sobre'
     | '/techkids'
@@ -179,6 +191,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   InovatechRoute: typeof InovatechRoute
   JovemProfissionalIaRoute: typeof JovemProfissionalIaRoute
+  KidsIaRoute: typeof KidsIaRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   SobreRoute: typeof SobreRoute
   TechkidsRoute: typeof TechkidsRoute
@@ -213,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/privacidade'
       fullPath: '/privacidade'
       preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kids-ia': {
+      id: '/kids-ia'
+      path: '/kids-ia'
+      fullPath: '/kids-ia'
+      preLoaderRoute: typeof KidsIaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jovem-profissional-ia': {
@@ -292,6 +312,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   InovatechRoute: InovatechRoute,
   JovemProfissionalIaRoute: JovemProfissionalIaRoute,
+  KidsIaRoute: KidsIaRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   SobreRoute: SobreRoute,
   TechkidsRoute: TechkidsRoute,
